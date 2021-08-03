@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[ show edit update destroy ]
-  skip_before_action :my_page_access, only: [:index, :new, :create, :show]
+#  skip_before_action :my_page_access, only: [:index, :new, :create, :show, :confirm]
 
   def index
     @pictures = Picture.all
@@ -8,7 +8,14 @@ class PicturesController < ApplicationController
   def show
   end
   def new
-    @picture = Picture.new
+    if params[:back]
+      @picture = Picture.new(picture_params)
+    else
+      @picture = Picture.new
+    end
+  end
+  def confirm
+    @picture = Picture.new(picture_params)
   end
   def edit
   end
