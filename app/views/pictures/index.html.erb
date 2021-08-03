@@ -7,6 +7,7 @@
     <tr>
       <th colspan="4"></th>
       <th>Comment</th>
+      <th>Uploaded_by</th>
       <th>Image</th>
     </tr>
   </thead>
@@ -19,6 +20,7 @@
         <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
         <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= picture.comment %></td>
+        <td><%= picture.user.name %></td>
         <td><%= picture.image %></td>
       </tr>
     <% end %>
