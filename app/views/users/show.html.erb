@@ -1,3 +1,7 @@
 <h1><%= @user.name%>のページ</h1>
 <p>メールアドレス：<%= @user.email %></p>
+<p>
+  <strong>Profile picture:</strong>
+    <%= image_tag @user.profile_image.url if @user[:profile_image] %>
+</p>
 <%= link_to "edit", edit_user_path(current_user.id) %>
