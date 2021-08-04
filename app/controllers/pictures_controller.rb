@@ -26,6 +26,7 @@ class PicturesController < ApplicationController
     @picture.user_id = current_user.id
     respond_to do |format|
       if @picture.save
+        PostMailer.post_mailer(@picture).deliver
         format.html { redirect_to @picture, notice: "Picture was successfully created." }
         format.json { render :show, status: :created, location: @picture }
       else

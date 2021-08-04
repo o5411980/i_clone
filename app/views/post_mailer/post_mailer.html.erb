@@ -1,0 +1,4 @@
+<h1>Picture投稿が完了しました！</h1>
+<h4><%= User.find_by(id: @post.user_id).name %>様</h4>
+<h4>投稿コメントの確認</h4>
+<p>comment: <%= @post.comment %></p>
