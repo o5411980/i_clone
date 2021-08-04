@@ -3,4 +3,5 @@ class Picture < ApplicationRecord
   validates :image, presence: true
   validates :comment, presence: true, length: { maximum: 255 }
   belongs_to :user
+  has_many :favorites, dependent: :destroy
 end
