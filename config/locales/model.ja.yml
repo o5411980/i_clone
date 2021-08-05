@@ -3,7 +3,6 @@ ja:
     models:
       picture: 画像
       user: ユーザー
-      session: セッション
     attributes:
       picture:
         image: 画像
@@ -14,6 +13,3 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         profile_image: プロフィール画像
-      session:
-        Email: メールアドレス
-        Password: パスワード

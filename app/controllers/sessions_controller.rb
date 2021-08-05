@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
-#  skip_before_action :my_page_access, only: [:new, :create, :destroy]
   skip_before_action :my_user_page_access
   skip_before_action :my_picture_page_access
   def new

@@ -1,9 +1,7 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[ show edit update destroy ]
-#  skip_before_action :my_page_access, only: [:index, :new, :create, :show, :confirm]
   skip_before_action :my_user_page_access
   skip_before_action :my_picture_page_access, only: [:index, :new, :create, :show, :confirm]
-
   def index
     @pictures = Picture.order(created_at: :desc)
   end

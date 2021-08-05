@@ -1,6 +1,5 @@
 class FavoritesController < ApplicationController
   skip_before_action :login_required
-#  skip_before_action :my_page_access
   skip_before_action :my_user_page_access
   skip_before_action :my_picture_page_access
   def create
