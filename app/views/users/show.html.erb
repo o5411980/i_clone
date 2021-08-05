@@ -2,7 +2,9 @@
 <p>メールアドレス：<%= @user.email %></p>
 <p>
   <strong>プロフィール画像:</strong>
+  <div class="container-fluid">
     <%= image_tag @user.profile_image.url if @user[:profile_image] %>
+  </div>
 </p>
-<%= link_to "my favorites", my_favorite_user_path(current_user.id) %>
-<%= link_to "edit", edit_user_path(current_user.id) %>
+<%= link_to "my favorites", my_favorite_user_path(current_user.id), class: 'btn btn-info'  %>
+<%= link_to "edit", edit_user_path(current_user.id), class: 'btn btn-info'  %>
