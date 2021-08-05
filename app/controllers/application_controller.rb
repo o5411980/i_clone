@@ -17,13 +17,11 @@ class ApplicationController < ActionController::Base
   def my_picture_page_access
     if current_user.id != Picture.find_by(id: params[:id]).user_id
     redirect_to user_path(current_user.id)
-    binding.pry
     end
   end
   def my_user_page_access
     if current_user.id.to_s != params[:id] && current_user.id != params[:id]
     redirect_to user_path(current_user.id)
-    binding.pry
     end
   end
 end

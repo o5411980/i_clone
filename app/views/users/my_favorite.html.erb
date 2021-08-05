@@ -1,8 +1,4 @@
 <h1><%= @user.name%>のお気に入り一覧</h1>
 <% @my_favorite.each do |favorite| %>
-  <div class="container-fluid">
-    <ul class="row">
-      <%= image_tag favorite.image.url %>
-    </ul>
-  </div>
+  <%= image_tag favorite.image.url %>
 <% end %>

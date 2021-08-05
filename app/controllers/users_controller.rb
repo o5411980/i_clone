@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :my_favorite]
   skip_before_action :login_required, only: [:new, :create]
 #  skip_before_action :my_page_access, only: [:new, :create, :show, :my_favorite]
   skip_before_action :my_user_page_access, only: [:new, :create, :show, :my_favorite]
@@ -16,13 +17,13 @@ class UsersController < ApplicationController
     end
   end
   def show
-    @user = User.find(params[:id])
+#    @user = User.find(params[:id]) #要リファクタリング
   end
   def edit
-    @user = User.find(params[:id])
+#    @user = User.find(params[:id]) #要リファクタリング
   end
   def update
-    @user = User.find(params[:id])
+#    @user = User.find(params[:id]) #要リファクタリング
     if @user.update(user_params)
       redirect_to user_path(current_user.id), notice: "ユーザ情報を更新しました"
     else
@@ -30,11 +31,14 @@ class UsersController < ApplicationController
     end
   end
   def my_favorite
-    @user = User.find(params[:id])
+#    @user = User.find(params[:id]) #要リファクタリング
     @my_favorite = current_user.favorite_pictures
   end
   private
   def user_params
   params.require(:user).permit(:name, :email, :password, :password_confirmation, :profile_image, :profile_image_cache)
+  end
+  def set_user
+  @user = User.find(params[:id])
   end
 end
