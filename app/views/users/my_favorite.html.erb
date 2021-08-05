@@ -1,4 +1,4 @@
 <h1><%= @user.name%>のお気に入り一覧</h1>
 <% @my_favorite.each do |favorite| %>
-  <%= image_tag favorite.image.url %>
+  <%= image_tag favorite.image.url, style: 'max-width: 970px'  %>
 <% end %>
