@@ -5,7 +5,7 @@ class PicturesController < ApplicationController
   skip_before_action :my_picture_page_access, only: [:index, :new, :create, :show, :confirm]
 
   def index
-    @pictures = Picture.all
+    @pictures = Picture.order(created_at: :desc)
   end
   def show
     @favorite = current_user.favorites.find_by(picture_id: @picture.id)
