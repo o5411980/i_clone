@@ -1,4 +1,6 @@
 class FavoritesController < ApplicationController
+  skip_before_action :login_required
+  skip_before_action :my_page_access
   def create
     favorite = current_user.favorites.create(picture_id: params[:picture_id])
     redirect_to pictures_path, notice: "#{favorite.picture.user.name}さんの画像をお気に入り登録しました"

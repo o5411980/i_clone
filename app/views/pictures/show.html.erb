@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 <p>
-  <strong>Image:</strong>
+  <strong>画像:</strong>
   <%= image_tag @picture.image.url %>
 </p>
 <p>
-  <strong>Comment:</strong>
+  <strong>コメント:</strong>
   <%= @picture.comment %>
 </p>
 <p>
-  <strong>Uploaded_by:</strong>
+  <strong>投稿者:</strong>
   <%= @picture.user.name %>
 </p>
 <% unless @picture.user_id == current_user.id %>
