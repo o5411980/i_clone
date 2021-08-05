@@ -19,7 +19,7 @@
         <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: '本当に削除しますか?' }, class: 'btn btn-info' if current_user == picture.user %></td>
         <td><%= picture.comment %></td>
         <td><%= picture.user.name %></td>
-        <td><%= picture.image %></td>
+        <td><%= image_tag picture.image.url, width: '256' %></td>
       </tr>
     <% end %>
   </tbody>
