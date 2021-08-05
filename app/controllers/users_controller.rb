@@ -1,13 +1,16 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
-  skip_before_action :my_page_access, only: [:new, :create, :show, :my_favorite]
+#  skip_before_action :my_page_access, only: [:new, :create, :show, :my_favorite]
+  skip_before_action :my_user_page_access, only: [:new, :create, :show, :my_favorite]
+  skip_before_action :my_picture_page_access
+
   def new
     @user = User.new
   end
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path(@user.id), notice: 'your account created'
+      redirect_to user_path(@user.id), notice: 'アカウントが作成されました'
     else
       render :new
     end
