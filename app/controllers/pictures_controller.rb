@@ -5,9 +5,11 @@ class PicturesController < ApplicationController
   def index
     @pictures = Picture.order(created_at: :desc)
   end
+
   def show
     @favorite = current_user.favorites.find_by(picture_id: @picture.id)
   end
+
   def new
     if params[:back]
       @picture = Picture.new(picture_params)
@@ -15,12 +17,15 @@ class PicturesController < ApplicationController
       @picture = Picture.new
     end
   end
+
   def confirm
     @picture = Picture.new(picture_params)
     @picture.user_id = current_user.id
   end
+
   def edit
   end
+
   def create
     @picture = Picture.new(picture_params)
     @picture.user_id = current_user.id
@@ -35,6 +40,7 @@ class PicturesController < ApplicationController
       end
     end
   end
+
   def update
     respond_to do |format|
       if @picture.update(picture_params)
@@ -46,6 +52,7 @@ class PicturesController < ApplicationController
       end
     end
   end
+
   def destroy
     @picture.destroy
     respond_to do |format|
@@ -53,11 +60,13 @@ class PicturesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
   private
   def set_picture
   @picture = Picture.find(params[:id])
   end
+
   def picture_params
   params.require(:picture).permit(:image, :comment, :image_cache)
   end
-  end
+end
