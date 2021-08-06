@@ -1,6 +1,6 @@
 <h1>確認画面</h1>
 <%= form_with(model: @picture, url: pictures_path, local: true) do |form| %>
-  <%= image_tag(@picture.image.url), style: 'max-width: 970px' if @picture.image && @picture.image.url %>
+  <%= image_tag @picture.image.url, style: 'max-width: 970px' if @picture.image && @picture.image.url %>
   <%= form.hidden_field :image_cache %>
   <p>コメント: <%= @picture.comment %></p>
   <%= form.hidden_field :comment %>
